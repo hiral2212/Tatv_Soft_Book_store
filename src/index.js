@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {NavLink,BrowserRouter,Routes,Route} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Nav from './components/nav';
+import Login from './components/login';
+import Home from './components/home';
+import './App.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Nav />
+    <Routes> 
+      <Route path="/" element = {<Home />}/>
+      <Route path="/login" element = {<Login name="manav"/>}/>
+    </Routes>
+    </BrowserRouter> 
   </React.StrictMode>
 );
 
