@@ -95,7 +95,7 @@ function Home() {
   };
 
   return (
-    <div className="flex-1 ml-40 mr-40" style={{width:"100%",border:"1px solid black",paddin:"0px"}}>
+    <div className="flex-1 ml-40 mr-40" style={{width:"100%",paddin:"0px"}}>
       <Typography
         variant="h4"
         sx={{

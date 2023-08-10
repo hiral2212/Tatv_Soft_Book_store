@@ -95,7 +95,7 @@ function AddCategories() {
           setFiledError,
         }) => (
           <form onSubmit={handleSubmit} className="flex-1 ml-40 mr-40">
-            <div className="grid grid-cols-2 gap-5 mt-5 ">
+            <div className="grid grid-cols-2 gap-5 mt-5 " style={{width:"80%",margin:"auto"}}>
               <FormControl fullWidth>
                 <label>Category Name*</label>
                 <TextField
@@ -112,7 +112,7 @@ function AddCategories() {
                 </div>
               </FormControl>
             </div>
-            <div className="mt-16">
+            <div className="mt-16" style={{width:"80%",margin:" 10px auto"}}>
               <Button
                 variant="contained"
                 type="submit"

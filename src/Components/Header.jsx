@@ -70,6 +70,8 @@ const Header = () => {
                 Register
               </Button>
               </div>
+            </>
+          )}
           <Button
             variant="outlined"
             sx={{
@@ -97,9 +99,7 @@ const Header = () => {
               cart
             </span>
           </Button>
-            </>
-          )}
-         
+          <div style={{display:"flex",marginTop: "-10px"}}>
            {items.map((item, index) => (
             <div key={`${item.name}-${item.route}-${index}`} className="flex">
               <Button
@@ -114,16 +114,9 @@ const Header = () => {
               >
                 {item.name}
               </Button>
-              {index !== items.length - 1 && (
-                <Divider
-                  orientation="vertical"
-                  variant="middle"
-                  flexItem
-                  sx={{ backgroundColor: "#f14d54" }}
-                />
-              )}
             </div>
           ))}
+          </div>
           {!!authData.id ? (
             <Button
               variant="contained"

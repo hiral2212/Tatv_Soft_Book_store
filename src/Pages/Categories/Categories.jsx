@@ -64,7 +64,7 @@ function Categories() {
       });
   };
   return (
-    <div className="flex-1 ml-40 mr-40">
+    <div className="flex-1 ml-40 mr-40" style={{width:"80%",margin:"auto"}}>
       <Typography
         variant="h4"
         sx={{

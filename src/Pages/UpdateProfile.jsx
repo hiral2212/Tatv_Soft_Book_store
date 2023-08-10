@@ -65,7 +65,7 @@ function UpdateProfile() {
   };
 
   return (
-    <div className="flex-1 ml-40 mr-40">
+    <div className="flex-1 ml-40 mr-40" style={{width:"80%",margin:"auto"}}>
       <Typography
         variant="h4"
         sx={{
@@ -182,7 +182,7 @@ function UpdateProfile() {
                 </div>
               </FormControl>
             </div>
-            <div className="mt-16">
+            <div className="mt-16" style={{marginTop:"10px"}}>
               <Button
                 variant="contained"
                 type="submit"
