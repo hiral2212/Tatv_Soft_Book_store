@@ -180,7 +180,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="flex-1 ml-96 mr-96 px-16">
+    <div className="flex-1 ml-96 mr-96 px-16" style={{width:"80%",margin:"auto"}}>
       <Typography
         variant="h4"
         sx={{
@@ -194,27 +194,66 @@ const CartPage = () => {
       >
         Cart Page
       </Typography>
+      <div className="flex justify-between" style={{display:"flex",marginTop:"0px"}}>
+        <div className="flex-1" >
+          <Button
+            variant="contained"
+            sx={{
+              color: "white",
+              backgroundColor: "#f14d54",
+              "&:hover": {
+                backgroundColor: "#f14d54", // Change the hover background color
+              },
+              textTransform: "capitalize",
+              fontWeight: "bold",
+            }}
+            onClick={placeOrder}
+          >
+            Place order
+          </Button>
+        </div>
+        
+      <div className="flex-1" style={{marginLeft:"30px"}}>
+          <Button
+            variant="contained"
+            sx={{
+              color: "white",
+              backgroundColor: "#f14d54",
+              "&:hover": {
+                backgroundColor: "#f14d54", // Change the hover background color
+              },
+              textTransform: "capitalize",
+              fontWeight: "bold",
+            }}
+            onClick={() => {
+              navigate("/");
+            }}
+            >
+            Continue Shopping
+          </Button>
+        </div>
+      </div>
       <div className="flex items-center justify-center m-6">
         <div className="border-t-2 border-[#f14d54] w-32"></div>
       </div>
-      <div className="flex font-semibold justify-between">
+      <div className="flex font-semibold justify-between" style={{width:"30%",margin:"0px 35%"}}>
         <Typography variant="h6">
           My Shopping Bag ({itemsInCart} Items)
         </Typography>
         <span>Total price: {totalPrice}</span>
       </div>
-      <div className="flex-1 mt-5">
+      <div className="flex-1 mt-5" style={{display:"flex",flexWrap:"wrap"}}>
         {cartList.map((cartItem) => {
           return (
             <div
               className="flex border border-gray-00 rounded-md shadow-lg p-5 mt-4"
-              key={cartItem.id}
+              key={cartItem.id} style={{display:"flex",marginTop:"10px",flexDirection:"column",width:"25%"}}
             >
               <div className="w-32 h-40 overflow-hidden rounded-sm">
                 <img
                   src={cartItem.book.base64image}
                   alt="BookImage"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover" style={{width:"200px",height:"200px"}}
                 />
               </div>
               <div className="flex">
@@ -223,8 +262,12 @@ const CartPage = () => {
                     {cartItem.book.name}
                   </p>
                   <p className="text-[#f14d54] mt-2">Cart item name</p>
-
-                  <div className="flex mt-16">
+                  <div>
+                    <span className="current-price font-semibold text-right">
+                      MRP &#8377; {cartItem.book.price}
+                    </span>
+                  </div>
+                  <div className="flex mt-16" style={{margin:"5px"}}>
                     <Button
                       sx={{
                         color: "white",
@@ -239,7 +282,7 @@ const CartPage = () => {
                     >
                       +
                     </Button>
-                    <span className="border border-gray-400 inline-block w-8 text-center leading-8 mx-2">
+                    <span className="border border-gray-400 inline-block w-8 text-center leading-8 mx-2" style={{margin:"10px"}}>
                       {cartItem.quantity}
                     </span>
                     <Button
@@ -259,17 +302,13 @@ const CartPage = () => {
                   </div>
                 </div>
                 <div className="flex-1 ml-40">
-                  <div>
-                    <span className="current-price font-semibold text-right">
-                      MRP &#8377; {cartItem.book.price}
-                    </span>
-                  </div>
+                  
                   <Button
                     variant="text"
                     sx={{
                       color: "#f14d54",
                       textTransform: "capitalize",
-                      marginTop: "100px",
+                      marginTop: "10px",
                     }}
                     onClick={() => removeItem(cartItem.id)}
                   >
@@ -281,46 +320,7 @@ const CartPage = () => {
           );
         })}
       </div>
-      <div className="flex justify-between">
-        <div className="flex-1">
-          <Button
-            variant="contained"
-            sx={{
-              color: "white",
-              backgroundColor: "#f14d54",
-              "&:hover": {
-                backgroundColor: "#f14d54", // Change the hover background color
-              },
-              marginTop: "50px",
-              textTransform: "capitalize",
-              fontWeight: "bold",
-            }}
-            onClick={placeOrder}
-          >
-            Place order
-          </Button>
-        </div>
-        <div className="flex-1">
-          <Button
-            variant="contained"
-            sx={{
-              color: "white",
-              backgroundColor: "#f14d54",
-              "&:hover": {
-                backgroundColor: "#f14d54", // Change the hover background color
-              },
-              marginTop: "50px",
-              textTransform: "capitalize",
-              fontWeight: "bold",
-            }}
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            Continue Shopping
-          </Button>
-        </div>
-      </div>
+      
     </div>
   );
 };
