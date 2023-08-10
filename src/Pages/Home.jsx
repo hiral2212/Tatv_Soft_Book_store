@@ -95,11 +95,11 @@ function Home() {
   };
 
   return (
-    <div className="flex-1 ml-40 mr-40">
+    <div className="flex-1 ml-40 mr-40" style={{width:"100%",border:"1px solid black",paddin:"0px"}}>
       <Typography
         variant="h4"
         sx={{
-          marginTop: "25px",
+          marginTop: "10px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -112,11 +112,9 @@ function Home() {
       <div className="flex items-center justify-center m-6">
         <div className="border-t-2 border-black w-32"></div>
       </div>
-      <div className="flex justify-between items-center ">
-        <Typography variant="h6">
-          Total - {bookResponse.totalItems} items
-        </Typography>
-        <div className="flex items-center space-x-10">
+      <div className="flex justify-between items-center" >
+        
+        <div className="flex items-center space-x-10" style={{display:"flex",width:"30%",margin:"auto"}}>
           <TextField
             name="text"
             placeholder="Search..."
@@ -137,7 +135,7 @@ function Home() {
               },
             }}
           />
-          <div className="flex">
+          <div className="flex" style={{display:"flex",marginLeft:"10px"}}>
             <Typography variant="subtitle1" sx={{ marginRight: "10px" }}>
               Sort By
             </Typography>
@@ -148,18 +146,22 @@ function Home() {
             </select>
           </div>
         </div>
+          <Typography variant="h6" style={{textAlign:"center",fontSize:"0.8rem"}}>
+          Total - {bookResponse.totalItems} items found
+        </Typography>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10" style={{display: 'flex',width: '100%',justifyContent: 'center',flexWrap:"wrap",margin:"0px"}}>
         {books.map((book, index) => (
           <div
             className="rounded-lg shadow-xl flex flex-col space-y-4 border-black"
-            key={index}
+            key={index} style={{display:"flex",flexDirection:"column",border:"1px solid black",width:"300px",margin:"10px"}}
           >
             <div className="w-full h-56 overflow-hidden rounded-lg">
               <img
                 src={book.base64image}
                 alt=""
                 className="w-full h-full object-cover"
+                style={{width:"300px",height:"300px",objectFit:"cover"}}
               />
             </div>
             <div className="p-5">
