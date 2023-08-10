@@ -1,9 +1,11 @@
 import React, { useState,useEffect } from 'react';
 import {NavLink} from 'react-router-dom';
 import {TextField,Button, FormHelperText} from '@mui/material';
-import './form.css'
+import '../styles/form.css'
 import {Formik,Form, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+import {ToastContainer,toast } from 'react-toastify'; 
+import Services from '../services/api';
 const Login = (props) => {
     const [userDetails,setUserDetails] = useState({name:'',email:'',password:''});
     // chagne name whith user entered in the text box
@@ -12,6 +14,17 @@ const Login = (props) => {
     },[])
     const handleSubmit = (values)=>{
         console.log(values);
+        Services.postData(values).then((res)=>{
+            console.log(res);
+        });
+        toast("form submitted successfully",{position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",});
     }
 
     const validationSchema = Yup.object().shape({
@@ -27,7 +40,7 @@ const Login = (props) => {
             validationSchema={validationSchema}>
                 {({values,errors,setFieldValue,handleBlur}) =>{
                     return <>
-                    <Form>
+                    <Form >
                 <TextField error={errors.name} variant="standard" onBlur={handleBlur} label="name" name="name" onChange={(e)=>{setFieldValue("name",e.target.value)}} placeholder={values.name}/>
                 <FormHelperText error><ErrorMessage name="name"/></FormHelperText>
                 <TextField error={errors.name} variant="outlined" onBlur={handleBlur} label="Email" name="email" type="email" onChange={(e)=>{setFieldValue("email",e.target.value)}}  placeholder={values.email} />
@@ -41,6 +54,7 @@ const Login = (props) => {
             </>
                 }}
             </Formik>
+
         </div>
     </>);
 }
