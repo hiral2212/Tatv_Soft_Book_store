@@ -89,7 +89,7 @@ function Register() {
   }, []);
 
   return (
-    <div className="" style={{width:"80%",border: "1px solid black",margin:"auto"}}>
+    <div className="" style={{width:"80%",border: "1px solid black",borderRadius:"10px",margin:"auto"}}>
       <ToastContainer />
       <Breadcrumbs
         separator={<NavigateNextIcon fontSize="small" />}
