@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <>
       <div className="flex justify-between items-center bg-white border-t-8 border-[#f14d54]">
-        <img src={logo} alt="TatvaSoft_Logo" className="h-24 ml-40 w-44" style={{width:"100px"}} />
+        <img src={logo} alt="TatvaSoft_Logo" className="h-24 ml-40 w-44" style={{width:"150px"}} />
 
         <div className="mr-40  space-x-1 flex">
           {!authData.id && (

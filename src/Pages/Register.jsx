@@ -89,14 +89,14 @@ function Register() {
   }, []);
 
   return (
-    <div className="">
+    <div className="" style={{width:"80%",border: "1px solid black",margin:"auto"}}>
       <ToastContainer />
       <Breadcrumbs
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"
         sx={{
           display: "flex",
-          marginTop: "50px",
+          marginTop: "10px",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -107,7 +107,7 @@ function Register() {
         variant="h4"
         sx={{
           display: "flex",
-          marginTop: "50px",
+          marginTop: "10px",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -117,15 +117,15 @@ function Register() {
       <div className="flex items-center justify-center m-6">
         <div className="border-t-2 border-[#f14d54] w-32"></div>
       </div>
-      <Typography variant="h6" sx={{ marginTop: "50px", marginLeft: "160px" }}>
+      <Typography variant="h6" sx={{ marginTop: "10px", width:"20%",margin:"auto" }}>
         Personal Information
       </Typography>
       <Divider
-        sx={{ marginTop: "20px", marginLeft: "160px", marginRight: "160px" }}
+        sx={{ marginTop: "6px",width:"40%",margin:"auto" }}
       />
       <Typography
         variant="body2"
-        sx={{ marginTop: "20px", marginLeft: "160px" }}
+        sx={{ marginTop: "10px", width:"40%",margin:"auto"}}
       >
         Please enter the following information to create your account
       </Typography>
@@ -144,7 +144,7 @@ function Register() {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit} className="flex-1 ml-40 mr-40">
-            <div className="grid grid-cols-2 gap-5 mt-5 ">
+            <div className="grid grid-cols-2 gap-5 mt-5 " style={{margin:"5px auto",width:"90%"}}>
               <FormControl fullWidth>
                 <label>First Name*</label>
                 <TextField
@@ -215,7 +215,8 @@ function Register() {
                 </div>
               </FormControl>
             </div>
-            <Typography variant="h6" sx={{ marginTop: "70px" }}>
+            <div style={{width:"90%",margin:"0px auto"}}>
+            <Typography variant="h6">
               Login Information
             </Typography>
             <Divider />
@@ -262,11 +263,13 @@ function Register() {
                 "&:hover": {
                   backgroundColor: "#f14d54", // Change the hover background color
                 },
-                marginTop: "60px",
+                width:"20%",
+                margin:"10px 40%",
               }}
             >
               Submit
             </Button>
+            </div>
           </form>
         )}
       </Formik>

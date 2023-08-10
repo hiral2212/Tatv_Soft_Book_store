@@ -78,13 +78,13 @@ function Login() {
     </Typography>,
   ];
   return (
-    <div className="flex-1 ">
+    <div className="flex-1" style={{ border: "1px solid black",width:"96%",margin:"auto",borderRadius: "20px"}}>
       <Breadcrumbs
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"
         sx={{
           display: "flex",
-          marginTop: "50px",
+          marginTop: "10px",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -95,7 +95,8 @@ function Login() {
         variant="h4"
         sx={{
           display: "flex",
-          marginTop: "50px",
+          marginTop:"5px",
+          marginBottom:"15px",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -105,15 +106,16 @@ function Login() {
       <div className="flex items-center justify-center m-6">
         <div className="border-t-2 border-[#f14d54] w-32"></div>
       </div>
-      <div className="grid grid-cols-2 gap-36 mt-12 ">
-        <div className="ml-40">
+      <div className="grid grid-cols-2 gap-36 mt-12" style={{display:"flex",justifyContent:"center",marginTop:"10px",marginBottom:"10px"}}>
+        <div className="ml-40" style={{width:"40%",marginRight:"10%",borderRight:"1px solid black"}}>
           <Typography variant="h6">New Customer</Typography>
           <Divider
             sx={{
               marginTop: "20px",
+              width:"inherit"
             }}
           />
-          <Typography variant="body2" sx={{ marginTop: "20px" }}>
+          <Typography variant="body2" sx={{ marginTop: "20px"}}>
             Registeration is free and easy.
           </Typography>
 
@@ -131,7 +133,6 @@ function Login() {
                 backgroundColor: "#f14d54", // Change the hover background color
               },
               textTransform: "capitalize",
-              marginTop: "165px",
             }}
             onClick={() => {
               navigate("/register");
@@ -140,8 +141,8 @@ function Login() {
             Create an Account
           </Button>
         </div>
-        <div>
-          <Typography variant="h6">Ragistered Customers</Typography>
+        <div style={{width:"30%"}}>
+          <Typography variant="h6">Registered Customers</Typography>
           <Divider
             sx={{
               marginTop: "20px",
@@ -166,7 +167,7 @@ function Login() {
               isSubmitting,
             }) => (
               <form onSubmit={handleSubmit} className="">
-                <FormControl fullWidth sx={{ marginTop: "20px" }}>
+                <FormControl fullWidth sx={{ marginTop: "10px" }}>
                   <label>Email Address*</label>
                   <TextField
                     size="small"
@@ -181,7 +182,7 @@ function Login() {
                     {errors.email && touched.email && errors.email}
                   </div>
                 </FormControl>
-                <FormControl fullWidth sx={{ marginTop: "40px" }}>
+                <FormControl fullWidth sx={{ marginTop: "10px" }}>
                   <label>Password*</label>
                   <TextField
                     type="password"
@@ -205,7 +206,8 @@ function Login() {
                     "&:hover": {
                       backgroundColor: "#f14d54", // Change the hover background color
                     },
-                    marginTop: "60px",
+                    marginTop: "10px",
+                    marginBottom: "10px",
                   }}
                 >
                   Submit
