@@ -48,8 +48,8 @@ export default function Searchbar() {
     }
   };
   return (
-    <div className="flex bg-[#efefef] h-20 items-center justify-center space-x-3 ">
-      <div style={{width:"100%",display:"inline-block",position:"relative",top:"-30px",marginLeft:"20%"}}>
+    <div className="flex bg-[#efefef] h-20 items-center justify-center space-x-3 " style={{margin:"0px!important"}}>
+      <div style={{width:"80%",display:"inline-block",position:"relative",top:"-30px",marginLeft:"10%"}}>
         <TextField
           hiddenLabel
           label="What are you Looking for..."
