@@ -49,7 +49,7 @@ export default function Searchbar() {
   };
   return (
     <div className="flex bg-[#efefef] h-20 items-center justify-center space-x-3 ">
-      <div style={{ position: "relative" }}>
+      <div style={{width:"100%",display:"inline-block",marginLeft:"20%"}}>
         <TextField
           hiddenLabel
           label="What are you Looking for..."
@@ -70,46 +70,8 @@ export default function Searchbar() {
           }}
         />
 
-        {openSearchResult && (
-          <div
-            className="bg-white w-[550px] shadow-lg absolute"
-            style={{
-              background: "white",
-              zIndex: "9",
-              borderRadius: "4px",
-              padding: "15px",
-            }}
-          >
-            {bookList?.length === 0 && <p>No Product Found</p>}
-            <List>
-              {bookList?.length > 0 &&
-                bookList.map((item, index) => (
-                  <ListItem className="flex-1 " key={index}>
-                    <div className="flex  w-full ">
-                      <div className="flex-1 ">
-                        <p className="font-semibold">{item.name}</p>
-                        <p className=" line-clamp-1">{item.description}</p>
-                      </div>
-                      <div className=" text-right ml-4">
-                        <p>{item.price}</p>
-                        <Button
-                          sx={{
-                            color: "#f14d54",
-                            textTransform: "capitalize",
-                          }}
-                          onClick={() => addToCart(item)}
-                        >
-                          Add to Cart
-                        </Button>
-                      </div>
-                    </div>
-                  </ListItem>
-                ))}
-            </List>
-          </div>
-        )}
-      </div>
-
+        
+      <div style={{width:"20%",display:"inline-block"}}>
       <Button
         variant="contained"
         startIcon={<AiOutlineSearch />}
@@ -120,9 +82,10 @@ export default function Searchbar() {
             backgroundColor: "#80BF32", // Change the hover background color
           },
           textTransform: "capitalize",
+          margin:"5px"
         }}
         onClick={search}
-      >
+        >
         Search
       </Button>
       <Button
@@ -139,9 +102,51 @@ export default function Searchbar() {
           setOpenSearchResult(false);
           setQuery("");
         }}
-      >
+        >
         Cancel
       </Button>
+      </div>
+      {openSearchResult && (
+          <div
+            className="bg-white w-[550px] shadow-lg absolute"
+            style={{
+              background: "white",
+              zIndex: "9",
+              borderRadius: "4px",
+              border: "1px solid #e2e8f0",
+              width:"56%"
+            }}
+          >
+            {bookList?.length === 0 && <p>No Product Found</p>}
+            <List>
+              {bookList?.length > 0 &&
+                bookList.map((item, index) => (
+                  <ListItem className="flex-1 " key={index} style={{borderBottom:"1px solid black",marginLeft:"13px",padding:"0"}}>
+                    <div className="flex  w-full" >
+                      <div className="flex-1 ">
+                        <p className="font-semibold" style={{padding:"0px",margin:"0px",fontWeight:"bold"}}>{item.name}</p>
+                        <p className=" line-clamp-1" style={{padding:"0px",margin:"0px"}}>{item.description}</p>
+                      </div>
+                      <div className=" text-right ml-4">
+                        <p style={{padding:"0px",marginTop:"10px"}}>{item.price}</p>
+                        <Button
+                          sx={{
+                            color: "#f14d54",
+                            textTransform: "capitalize",
+                            margin:"0px"
+                          }}
+                          onClick={() => addToCart(item)}
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </div>
+                  </ListItem>
+                ))}
+            </List>
+          </div>
+        )}
+        </div>
     </div>
   );
 }

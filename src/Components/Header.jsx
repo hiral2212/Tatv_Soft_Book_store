@@ -36,11 +36,12 @@ const Header = () => {
   return (
     <>
       <div className="flex justify-between items-center bg-white border-t-8 border-[#f14d54]">
-        <img src={logo} alt="TatvaSoft_Logo" className="h-24 ml-40 w-44" />
+        <img src={logo} alt="TatvaSoft_Logo" className="h-24 ml-40 w-44" style={{width:"100px"}} />
 
         <div className="mr-40  space-x-1 flex">
           {!authData.id && (
             <>
+            <div style={{display:"flex"}}>
               <Button
                 variant="text"
                 sx={{
@@ -61,16 +62,45 @@ const Header = () => {
               />
               <Button
                 variant="text"
-                sx={{ color: "#f14d54", textTransform: "capitalize" }}
+                sx={{ color: "#f14d54", textTransform: "capitalize"}}
                 onClick={() => {
                   navigate("/register");
                 }}
               >
                 Register
               </Button>
+              </div>
+          <Button
+            variant="outlined"
+            sx={{
+              color: "#f14d54",
+              borderColor: "#f14d54",
+              textTransform: "capitalize",
+              fontWeight: "bold",
+              position: "absolute",
+              top: "15px",
+              right: "30px",
+            }}
+            startIcon={<HiShoppingCart />}
+            onClick={() => {
+              navigate("/cart-page");
+            }}
+          >
+            {cartData.length}
+            <span
+              style={{
+                color: "black",
+                marginLeft: "4px",
+                fontWeight: "normal",
+              }}
+            >
+              cart
+            </span>
+          </Button>
             </>
           )}
-          {items.map((item, index) => (
+         
+           {items.map((item, index) => (
             <div key={`${item.name}-${item.route}-${index}`} className="flex">
               <Button
                 variant="text"
@@ -94,30 +124,6 @@ const Header = () => {
               )}
             </div>
           ))}
-          <Button
-            variant="outlined"
-            sx={{
-              color: "#f14d54",
-              borderColor: "#f14d54",
-              textTransform: "capitalize",
-              fontWeight: "bold",
-            }}
-            startIcon={<HiShoppingCart />}
-            onClick={() => {
-              navigate("/cart-page");
-            }}
-          >
-            {cartData.length}
-            <span
-              style={{
-                color: "black",
-                marginLeft: "4px",
-                fontWeight: "normal",
-              }}
-            >
-              cart
-            </span>
-          </Button>
           {!!authData.id ? (
             <Button
               variant="contained"
