@@ -63,7 +63,6 @@ function MyNavigation() {
 }
 
 export default MyNavigation;
-// [10:26] Keval Dhol
 //     Admin:
 // Email: admin@tatvasoft.com
 // Password: admin@123
